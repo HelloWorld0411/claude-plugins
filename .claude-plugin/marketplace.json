@@ -3,33 +3,14 @@
   "owner": {
     "name": "HelloWorld0411"
   },
-  "description": "Selected skills from Yuan1z0825/nature-skills (Apache-2.0), loaded directly from the upstream repository.",
+  "description": "Selected skills from Yuan1z0825/nature-skills (Apache-2.0), copied daily into this repository with Chinese labels.",
   "plugins": [
     {
       "name": "nature-skills",
-      "source": {
-        "source": "github",
-        "repo": "Yuan1z0825/nature-skills"
-      },
+      "source": "./plugins/nature-skills",
       "description": "Nature-style figures, polishing, paper reading/translation, PPT/Word output, patent drafts, statistics and data-availability reporting.",
       "license": "Apache-2.0",
-      "homepage": "https://github.com/Yuan1z0825/nature-skills",
-      "strict": false,
-      "skills": [
-        "./skills/nature-shared",
-        "./skills/nature-figure",
-        "./skills/nature-polishing",
-        "./skills/nature-reader",
-        "./skills/nature-paper-trans",
-        "./skills/nature-paper-card",
-        "./skills/nature-paper-xray",
-        "./skills/nature-paper2ppt",
-        "./skills/nature-paper2word",
-        "./skills/nature-image2ppt",
-        "./skills/nature-paper-to-patent",
-        "./skills/nature-statistics",
-        "./skills/nature-data"
-      ]
+      "homepage": "https://github.com/Yuan1z0825/nature-skills"
     }
   ]
 }

@@ -1,0 +1,11 @@
+{
+  "name": "nature-skills",
+  "version": "0.1.0",
+  "description": "Selected Nature Skills: figures, polishing, paper reading/translation, PPT/Word output, patent drafts, statistics and data-availability reporting. Copied daily from Yuan1z0825/nature-skills, with Chinese labels added to each description.",
+  "author": {
+    "name": "Yizhe Yuan and Nature Skills contributors",
+    "url": "https://github.com/Yuan1z0825"
+  },
+  "homepage": "https://github.com/Yuan1z0825/nature-skills",
+  "license": "Apache-2.0"
+}

@@ -1,0 +1,42 @@
+name: Sync nature-skills
+
+# Copies the selected skills from Yuan1z0825/nature-skills (Apache-2.0) into
+# plugins/nature-skills/skills/ and adds Chinese labels to their descriptions.
+# Runs once a day, or by hand from the Actions tab ("Run workflow").
+
+on:
+  schedule:
+    - cron: "17 19 * * *"   # 04:17 Japan time
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-nature-skills
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch upstream
+        run: git clone --depth 1 https://github.com/Yuan1z0825/nature-skills.git /tmp/upstream
+
+      - name: Copy selected skills and add labels
+        run: python3 scripts/sync_nature_skills.py /tmp/upstream
+
+      - name: Commit if changed
+        run: |
+          set -euo pipefail
+          git add -A plugins/nature-skills
+          if git diff --cached --quiet; then
+            echo "No changes upstream."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Sync nature-skills to upstream $(cut -c1-7 plugins/nature-skills/UPSTREAM_COMMIT)"
+          git push
